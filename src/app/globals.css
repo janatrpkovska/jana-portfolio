@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: rgba(166, 92, 59, 0.18);
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-content px-6 sm:px-8 lg:px-10;
+}
+
+.section-heading {
+  @apply font-display text-3xl sm:text-4xl text-ink tracking-tight;
+}
+
+.eyebrow {
+  @apply text-xs font-medium uppercase tracking-[0.14em] text-accent;
+}
+
+.focus-ring {
+  @apply outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper rounded-sm;
+}
