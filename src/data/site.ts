@@ -164,6 +164,40 @@ export const mainProjects: Project[] = [
     },
   },
   {
+    slug: "mona-mayhem",
+    name: "Mona Mayhem",
+    kind: "solo",
+    eyebrow: "GitHub Copilot Dev Days — workshop project extended and deployed",
+    description:
+      "A retro arcade-style game that puts two GitHub profiles head-to-head, compares their public contribution activity, and announces the winner with an interactive showdown.",
+    role: "Built and extended the GitHub Copilot Dev Days workshop project using GitHub Copilot and Claude Code, then deployed it on Vercel.",
+    highlights: [
+      "Compare GitHub contribution totals and year-long contribution heatmaps for two usernames",
+      "Animated battle countdown, winner or tie announcement, and longest contribution streaks",
+      "Sound effects with a mute toggle, shareable results, and recent battle history saved locally",
+      "Server-side contribution API with username validation, caching, and helpful error states",
+    ],
+    stack: ["Astro", "TypeScript", "GitHub Copilot", "Claude Code", "Vercel"],
+    cta: {
+      label: "Live Demo",
+      href: "https://mona-mayhem.vercel.app",
+    },
+    secondaryCta: {
+      label: "GitHub",
+      href: "https://github.com/janatrpkovska/mona-mayhem",
+    },
+    visual: {
+      type: "image",
+      icon: "puzzle",
+      image: {
+        src: "/images/mona-mayhem/mona-mayhem-preview.png",
+        alt: "Mona Mayhem arcade game showing a GitHub contribution battle between torvalds and gaearon, winner, heatmaps, and battle history",
+        fit: "cover",
+        aspectRatio: "1150 / 869",
+      },
+    },
+  },
+  {
     slug: "roadwatch",
     name: "RoadWatch",
     kind: "solo",
@@ -292,11 +326,11 @@ export const teamProjects: Project[] = [
 ];
 
 export const skills = {
-  Frontend: ["JavaScript", "TypeScript", "React", "Next.js", "Vue", "Angular", "Tailwind CSS", "Recharts", "HTML", "CSS"],
+  Frontend: ["JavaScript", "TypeScript", "Astro", "React", "Next.js", "Vue", "Angular", "Tailwind CSS", "Recharts", "HTML", "CSS"],
   Backend: ["Java (Spring Boot)", "Node.js / Next.js server actions", "Python (Flask)"],
   Data: ["PostgreSQL", "Prisma", "Firebase / Firestore"],
   "AI / Computer Vision": ["YOLOv8", "OpenCV", "AI-assisted development", "Bolt"],
-  "Tools & Workflow": ["Git", "GitHub"],
+  "Tools & Workflow": ["Git", "GitHub", "GitHub Copilot", "Claude Code"],
 };
 
 export const education: { institution: string; detail: string; status?: string; period?: string }[] = [
