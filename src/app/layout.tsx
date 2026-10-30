@@ -17,16 +17,23 @@ const sans = Inter({
   display: "swap",
 });
 
+const siteUrl = "https://jana-portfolio-sigma.vercel.app";
 const title = "Jana Trpkovska — Junior Full-Stack Developer";
 const description =
-  "Junior full-stack developer working across frontend, server logic and databases, with AI-assisted development for prototyping, debugging and faster iteration. Selected projects: Lit Candle, RoadWatch, Puzzle Bloom, Guess the Flag.";
+  "Junior full-stack developer building practical web applications with AI-assisted workflows. Explore Lit Candle, OpenDataScope, Mona Mayhem, RoadWatch, and more.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title,
   description,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title,
     description,
+    url: siteUrl,
+    siteName: "Jana Trpkovska — Portfolio",
     type: "website",
   },
   twitter: {

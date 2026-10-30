@@ -35,6 +35,19 @@ export function Nav() {
           GitHub
         </Link>
       </div>
+      <nav aria-label="Mobile" className="border-t border-line/70 sm:hidden">
+        <div className="container-page flex items-center justify-between gap-2">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="focus-ring inline-flex min-h-11 items-center px-1 text-xs font-medium text-ink-soft transition-colors hover:text-ink"
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
+      </nav>
     </header>
   );
 }
