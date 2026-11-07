@@ -18,9 +18,9 @@ const sans = Inter({
 });
 
 const siteUrl = "https://jana-portfolio-sigma.vercel.app";
-const title = "Jana Trpkovska — Junior Full-Stack Developer";
+const title = "Jana Trpkovska вЂ” Junior Full-Stack Developer";
 const description =
-  "Junior full-stack developer building practical web applications with AI-assisted workflows. Explore Lit Candle, OpenDataScope, Mona Mayhem, RoadWatch, and more.";
+  "Creative developer building full-stack web applications across frontend, server logic and databases, and integrating AI where it helps. Selected projects: Lit Candle, Evidence AI, OpenDataScope, Mona Mayhem, RoadWatch.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: siteUrl,
-    siteName: "Jana Trpkovska — Portfolio",
+    siteName: "Jana Trpkovska вЂ” Portfolio",
     type: "website",
   },
   twitter: {

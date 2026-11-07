@@ -13,6 +13,15 @@ export function ProjectCard({ project, reverse = false }: { project: Project; re
       </div>
 
       <div className={reverse ? "lg:order-1" : undefined}>
+        {project.award && (
+          <p className="mb-4 inline-flex flex-wrap items-center gap-x-2 rounded-full border border-accent/40 bg-paper-warm/70 px-3.5 py-1.5 text-xs font-medium text-ink">
+            <span>{project.award.label}</span>
+            <span aria-hidden="true" className="text-ink-faint">
+              ·
+            </span>
+            <span className="font-normal text-ink-soft">{project.award.note}</span>
+          </p>
+        )}
         <p className="eyebrow mb-3">{project.eyebrow}</p>
         <h3 className="font-display text-3xl tracking-tight text-ink">{project.name}</h3>
         <p className="mt-4 text-base leading-relaxed text-ink-soft">{project.description}</p>

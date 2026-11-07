@@ -30,6 +30,7 @@ export type Project = {
   name: string;
   kind: "solo" | "team";
   eyebrow: string; // short context line
+  award?: { label: string; note: string }; // optional achievement badge, e.g. hackathon placement
   description: string;
   role: string;
   highlights: string[];
@@ -43,10 +44,10 @@ export type Project = {
 
 export const person = {
   name: "Jana Trpkovska",
-  title: "Junior Full-Stack Developer",
-  subtitle: "AI-Assisted Development",
+  title: "Creative Developer | AI + Web",
+  subtitle: "Full-Stack Web Applications",
   tagline:
-    "I build practical web applications — from the customer-facing interface to the business logic behind it — and use AI-assisted tools to prototype and iterate faster.",
+    "I'm a creative developer building full-stack web applications — from the interface to the business logic behind it — and integrating AI where it genuinely helps.",
   github: "https://github.com/janatrpkovska",
   email: "trpkovskaj@yahoo.com" as string | null,
   linkedin: "https://www.linkedin.com/in/jana-trpkovska-54689521b/" as string | null,
@@ -56,8 +57,8 @@ export const person = {
 
 export const about = {
   paragraphs: [
-    "I'm a junior full-stack developer working across frontend, server logic and databases. I'd rather build a practical system end to end than a UI demo on its own — Lit Candle, a small business I run myself, gave me a real set of workflows (orders, inventory, customer communication) to turn into software instead of a hypothetical brief.",
-    "I use AI-assisted development for prototyping, debugging and faster iteration. That doesn't mean accepting whatever gets generated — I read the code it produces, test it, and fix what's wrong before it ships. Guess the Flag was my first project built this way; Lit Candle and RoadWatch are where I use the same workflow on larger, more consequential problems.",
+    "I'm early in my career, and I like to work across the whole stack: frontend, server logic and databases. I'd rather build a practical system end to end than a UI demo on its own. Lit Candle, a small business I run myself, gave me real workflows (orders, inventory, customer communication) to turn into software, and the same habit carries into hackathons and university projects.",
+    "AI shows up in my work in two ways. In some products it is a feature: RoadWatch detects vehicles with computer vision, and Evidence AI, our hackathon entry, drafts replies that cite their sources. In the rest it is a tool that speeds up how I build, always with me reviewing and testing the result.",
   ],
 };
 
@@ -88,7 +89,7 @@ export const mainProjects: Project[] = [
       "Order status changes go through a fixed transition table enforced on the server, not just hidden or shown in the UI",
       "Bouquets are a dedicated product type with their own sizes, pricing, and box inventory — not assembled from other catalog items",
       "Order confirmation never depends on email succeeding: the order is committed to the database first, email sent after",
-      "721/721 automated tests passing, alongside a clean TypeScript typecheck, ESLint, and production build",
+      "Built out an automated test suite covering core flows, alongside TypeScript typecheck, lint, and production build checks",
     ],
     stack: ["Next.js 14", "TypeScript", "React", "Tailwind CSS", "PostgreSQL", "Prisma", "Resend"],
     cta: {
@@ -106,6 +107,45 @@ export const mainProjects: Project[] = [
         "/images/lit-candle/06-admin-dashboard.png",
       ],
       icon: "candle",
+    },
+  },
+  {
+    slug: "evidence-ai",
+    name: "Evidence AI",
+    kind: "team",
+    eyebrow: "Team project — Solutionade Sprint Hackathon, November 2026",
+    award: {
+      label: "🥉 3rd Place · Solutionade Sprint Hackathon 2026",
+      note: "Awarded to our team",
+    },
+    description:
+      "An AI-powered support assistant that drafts customer replies from tickets and Knowledge Articles in Microsoft Dataverse. Each draft cites its sources, and the app verifies that the cited articles and exact quotations exist. When the documentation doesn't cover a question, it says so instead of guessing.",
+    role: "Contributed to UI/UX design decisions, functional testing, and the final live demo and presentation as part of a three-member team.",
+    highlights: [
+      "Retrieves live tickets and Knowledge Articles from Microsoft Dataverse and drafts replies with Groq (GPT-OSS-20B)",
+      "Validates cited sources and exact quotations, and flags when the available information is insufficient",
+      "Suggests ticket urgency, supports human review and specialist escalation, and saves approved results to Dataverse. Nothing is sent to customers automatically",
+    ],
+    stack: ["React", "TypeScript", "C#", "ASP.NET Core", "Microsoft Dataverse", "Groq API (GPT-OSS-20B)"],
+    secondaryNote:
+      "Case study with real screenshots. The app needs an ASP.NET Core backend, Microsoft Dataverse access and a Groq API key, so there is no public live demo.",
+    visual: {
+      type: "gallery",
+      icon: "chart",
+      gallery: [
+        {
+          src: "/images/evidence-ai/evidence-ai-workspace.webp",
+          alt: "Evidence AI workspace for ticket TIC-09: an evidence-backed draft reply beside the cited Knowledge Article KB-08 and its supporting quotations",
+          fit: "cover",
+          aspectRatio: "1907 / 854",
+        },
+        {
+          src: "/images/evidence-ai/evidence-ai-tickets.webp",
+          alt: "Evidence AI customer tickets page with search, topic filter and sorting, and suggested urgency and topic labels on each ticket",
+          fit: "cover",
+          aspectRatio: "1907 / 860",
+        },
+      ],
     },
   },
   {
@@ -167,33 +207,26 @@ export const mainProjects: Project[] = [
     slug: "mona-mayhem",
     name: "Mona Mayhem",
     kind: "solo",
-    eyebrow: "GitHub Copilot Dev Days — workshop project extended and deployed",
+    eyebrow: "Retro arcade game — built from the GitHub Copilot Dev Days workshop template",
     description:
-      "A retro arcade-style game that puts two GitHub profiles head-to-head, compares their public contribution activity, and announces the winner with an interactive showdown.",
-    role: "Built and extended the GitHub Copilot Dev Days workshop project using GitHub Copilot and Claude Code, then deployed it on Vercel.",
+      "A retro arcade showdown for GitHub contribution graphs: enter two usernames, watch the countdown, and see who has shipped more over the past year. I implemented the full game, including all seven of the workshop's bonus challenges, and deployed it to Vercel.",
+    role: "Built and deployed the full game from the workshop template.",
     highlights: [
-      "Compare GitHub contribution totals and year-long contribution heatmaps for two usernames",
-      "Animated battle countdown, winner or tie announcement, and longest contribution streaks",
-      "Sound effects with a mute toggle, shareable results, and recent battle history saved locally",
-      "Server-side contribution API with username validation, caching, and helpful error states",
+      "Side-by-side contribution graphs with a winner banner, longest-streak calculation and shareable results",
+      "A server-side API route fetches GitHub contribution data, with input validation, caching, and error and rate-limit handling",
+      "Sound effects synthesized with the Web Audio API, battle history saved in the browser, and reduced-motion support",
     ],
-    stack: ["Astro", "TypeScript", "GitHub Copilot", "Claude Code", "Vercel"],
-    cta: {
-      label: "Live Demo",
-      href: "https://mona-mayhem.vercel.app",
-    },
-    secondaryCta: {
-      label: "GitHub",
-      href: "https://github.com/janatrpkovska/mona-mayhem",
-    },
+    stack: ["Astro", "TypeScript", "Vercel"],
+    cta: { label: "Live Demo", href: "https://mona-mayhem.vercel.app" },
+    secondaryCta: { label: "GitHub", href: "https://github.com/janatrpkovska/mona-mayhem" },
     visual: {
       type: "image",
-      icon: "puzzle",
+      icon: "flag",
       image: {
-        src: "/images/mona-mayhem/mona-mayhem-preview.png",
-        alt: "Mona Mayhem arcade game showing a GitHub contribution battle between torvalds and gaearon, winner, heatmaps, and battle history",
+        src: "/images/mona-mayhem/mona-mayhem.webp",
+        alt: "Mona Mayhem battle between two GitHub users, showing contribution graphs, the winner banner and longest streaks",
         fit: "cover",
-        aspectRatio: "1150 / 869",
+        aspectRatio: "800 / 875",
       },
     },
   },
@@ -326,11 +359,12 @@ export const teamProjects: Project[] = [
 ];
 
 export const skills = {
-  Frontend: ["JavaScript", "TypeScript", "Astro", "React", "Next.js", "Vue", "Angular", "Tailwind CSS", "Recharts", "HTML", "CSS"],
-  Backend: ["Java (Spring Boot)", "Node.js / Next.js server actions", "Python (Flask)"],
-  Data: ["PostgreSQL", "Prisma", "Firebase / Firestore"],
-  "AI / Computer Vision": ["YOLOv8", "OpenCV", "AI-assisted development", "Bolt"],
-  "Tools & Workflow": ["Git", "GitHub", "GitHub Copilot", "Claude Code"],
+  Frontend: ["JavaScript", "TypeScript", "React", "Next.js", "Astro", "Vue", "Angular", "Tailwind CSS", "Recharts", "HTML", "CSS"],
+  Backend: ["C#", "ASP.NET Core", "Java (Spring Boot)", "Node.js / Next.js server actions", "Python (Flask)"],
+  Data: ["PostgreSQL", "Prisma", "Microsoft Dataverse", "Firebase / Firestore"],
+  "AI in the products I build": ["Groq API (GPT-OSS-20B)", "YOLOv8", "OpenCV"],
+  "AI-assisted development": ["AI-assisted prototyping & debugging", "Bolt"],
+  "Tools & Workflow": ["Git", "GitHub", "Vercel"],
 };
 
 export const education: { institution: string; detail: string; status?: string; period?: string }[] = [
@@ -340,5 +374,13 @@ export const education: { institution: string; detail: string; status?: string; 
       "B.Sc. studies in Computer Science and Engineering, Application of Information Technologies (PIT)",
     status: "Coursework completed · Bachelor's thesis in progress",
     period: "2019 – Present",
+  },
+];
+
+export const experience: { organization: string; role: string; period: string }[] = [
+  {
+    organization: "Vendor",
+    role: "IT Intern",
+    period: "November 2026 – Present",
   },
 ];
